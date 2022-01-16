@@ -13,3 +13,18 @@ Implement a Movie Ticket Booking Application for a Theatre. Refer to the followi
 
 
 
+# Movie
+```java
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
+public class Movie {
+
+    private final String id;
+    private final String name;
+
+    //Other metadata
+}
+```
