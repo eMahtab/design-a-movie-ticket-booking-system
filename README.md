@@ -150,6 +150,58 @@ public class SeatLock {
 }
 ```
 
+# Booking and BookingStatus
+```java
+import lombok.Getter;
+import lombok.NonNull;
+
+import java.util.List;
+
+@Getter
+public class Booking {
+
+    private final String bookingId;
+    private final String userId;
+    private BookingStatus bookingStatus;
+    private final List<Seat> seatsBooked;
+    private final Show show;
+    
+    public Booking(@NonNull final String id, @NonNull final Show show, @NonNull final String user,
+                   @NonNull final List<Seat> seatsBooked) {
+        this.id = id;
+        this.show = show;
+        this.seatsBooked = seatsBooked;
+        this.user = user;
+        this.bookingStatus = BookingStatus.Created;
+    }
+
+    public boolean isConfirmed() {
+        return this.bookingStatus == BookingStatus.Confirmed;
+    }
+
+    public void confirmBooking() {
+        if (this.bookingStatus != BookingStatus.Created) {
+            throw new InvalidStateException();
+        }
+        this.bookingStatus = BookingStatus.Confirmed;
+    }
+
+    public void expireBooking() {
+        if (this.bookingStatus != BookingStatus.Created) {
+            throw new InvalidStateException();
+        }
+        this.bookingStatus = BookingStatus.Expired;
+    }
+}
+
+public enum BookingStatus {
+	REQUESTED, PENDING, CONFIRMED, CANCELLED;
+}
+```
 
 
 
+# References :
+1. https://github.com/anomaly2104/ticket-booking-low-level-system-design
+2. https://www.youtube.com/watch?v=Xny0IdvJ-1M
+3. https://www.youtube.com/watch?v=7LaKmNfMCAo
