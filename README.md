@@ -73,12 +73,12 @@ public class Screen {
 
     private final String id;
     private final String name;
-    private final Theatre theatre;
+    private final CinemaHall theatre;
     //Other screen metadata.
 
-    private final List<Seat> seats;
+    private final List<Show> shows;
 
-    public Screen(@NonNull final String id, @NonNull final String name, @NonNull final Theatre theatre) {
+    public Screen(@NonNull final String id, @NonNull final String name, @NonNull final CinemaHall theatre) {
         this.id = id;
         this.name = name;
         this.theatre = theatre;
@@ -90,4 +90,24 @@ public class Screen {
     }
 }
 ```
+
+# Show
+```java
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+import java.util.Date;
+
+@AllArgsConstructor
+@Getter
+public class Show {
+    private final String showId;
+    private final Movie movie;
+    private final Screen screen;
+    private final Date startTime;
+    private final Integer durationInSeconds;
+}
+```
+
+
 
