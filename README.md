@@ -24,6 +24,8 @@ public class Movie {
 
     private final String id;
     private final String name;
+    private int durationInMins;
+    private String genre;
 
     //Other metadata
 }
