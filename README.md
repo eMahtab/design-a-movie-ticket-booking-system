@@ -1,6 +1,6 @@
 # Design a movie ticket booking system
 
-A movie ticket booking site lists all the theaters from different theater chains, e.g. PVR, INOX, Cinepolis etc. 
+**A movie ticket booking site lists all the theaters from different theater chains, e.g. PVR, INOX, Cinepolis etc.** 
 
 Implement a Movie Ticket Booking Application for a Theatre. Refer to the following details:
 
